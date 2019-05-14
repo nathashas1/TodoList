@@ -89,7 +89,6 @@ class App extends React.Component {
                 /> : null}
               <div className="submitBtn" onClick={this.handleClick}>Add Card</div>
             </div>
-
           <Doing allTodos={this.state.allTodos}
             changeState={this.changeState}/>
 
