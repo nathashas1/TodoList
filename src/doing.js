@@ -2,11 +2,8 @@ import React from 'react';
 import DoingItem from './doing_item';
 
 const Doing = ({ allTodos,changeState }) => {
-
-  let arr = []
   let doings = allTodos.map((doing,i) => {
     if (doing.state === "doing") {
-      arr.push(doing)
         return (
          <DoingItem
            key={i}
@@ -20,9 +17,8 @@ const Doing = ({ allTodos,changeState }) => {
       return null
     }
   });
-    console.log("newArr",arr)
   return (
-    <div className="">
+    <div className="container">
      <h1>Doing</h1>
       {doings}
     </div>

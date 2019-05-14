@@ -1,39 +1,18 @@
 import React from 'react';
-import Done from './done';
 
 
+const DoneItem = ({ done,changeState }) => {
 
-
-class DoingItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state  = {
-     }
-  }
-
-
-
-
-
-
-render(){
-
-  let rightBtn = this.props.right ? "/right.svg" : null
-  let leftBtn = this.props.left ? "/left.svg" : null
-
+  let leftBtn = "/left.svg"
   return (
     <div className="todoItem">
-      <img className="imageIcon" src={leftBtn} alt="" onClick={() => this.handleClick("left",this.props.doing)}/>
-      <div>{this.props.done}</div>
-      <img className="imageIcon" src={rightBtn} alt="" onClick={() => this.handleClick("right",this.props.doing)}/>
+      <img className="imageIcon" src={leftBtn} alt="" onClick={() =>changeState("left","done",done.id)}/>
+      {done.text}
     </div>
   )
 }
 
 
-}
 
 
-
-
-export default DoingItem;
+export default DoneItem;

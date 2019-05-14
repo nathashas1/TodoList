@@ -3,7 +3,6 @@ import Doing from './doing.js';
 import Done from './done.js';
 import Todo from './todo.js';
 import './App.css';
-// import update from 'immutability-helper';
 
 
 
@@ -42,20 +41,32 @@ class App extends React.Component {
     }
 
     changeState(side,container,id){
-
+      console.log("changestae",side,container,id)
       let todo = this.state.allTodos[id]
         if (container === "doing") {
           if (side === "left") {
-
-
+            todo.state = "todo"
+            let updatedTodo = this.state.allTodos
+            updatedTodo.splice(id, 1, todo)
+            this.setState({allTodos: updatedTodo})
+          } else if (side === "right") {
+            todo.state = "done"
+            let updatedTodo = this.state.allTodos
+            updatedTodo.splice(id, 1, todo)
+            this.setState({allTodos: updatedTodo})
           }
         } else if (container === "todo") {
             todo.state = "doing"
-            let updatedTodo = this.state.allTodos.splice(id, 1, todo)
+            let updatedTodo = this.state.allTodos
+            updatedTodo.splice(id, 1, todo)
             console.log("updatedTodo",updatedTodo,this.state.allTodos)
-            // let updatedTodo = update(this.state.allTodos, {$splice: [[id, 1, todo]]});
             this.setState({allTodos: updatedTodo})
-          }
+        } else if (container === "done") {
+          todo.state = "doing"
+          let updatedTodo = this.state.allTodos
+          updatedTodo.splice(id, 1, todo)
+          this.setState({allTodos: updatedTodo})
+        }
     }
 
 
@@ -63,15 +74,19 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-          {this.state.showForm ? <input
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-          /> : null}
-          <div className="" onClick={this.handleClick}>Add Card</div>
-          <Todo allTodos={this.state.allTodos}
-                changeState={this.changeState}
-            />
+          <div className="container">
+              <Todo allTodos={this.state.allTodos}
+                    changeState={this.changeState}
+                    showForm={this.state.showForm}
+                />
+                {this.state.showForm ? <input
+                      type="text"
+                      value={this.state.value}
+                      onChange={this.handleChange}
+                /> : null}
+              <div className="submitBtn" onClick={this.handleClick}>Add Card</div>
+            </div>
+
           <Doing allTodos={this.state.allTodos}
             changeState={this.changeState}/>
           <Done allTodos={this.state.allTodos}

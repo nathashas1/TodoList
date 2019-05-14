@@ -9,7 +9,7 @@ const TodoItem = ({ todo,changeState }) => {
   return (
     <div className="todoItem">
       {todo.text}
-      <img className="imageIcon" src={rightBtn} alt="" onClick={() => changeState("right","todo",todo.id)}/>
+      <img className="imageIconRight" src={rightBtn} alt="" onClick={() => changeState("right","todo",todo.id)}/>
     </div>
   )
 }
