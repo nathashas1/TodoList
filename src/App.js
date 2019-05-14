@@ -1,6 +1,6 @@
 import React from 'react';
 import Doing from './doing.js';
-import Done from './done.js';
+// import Done from './done.js';
 import Todo from './todo.js';
 import './App.css';
 
@@ -72,6 +72,9 @@ class App extends React.Component {
 
 
     render() {
+      // <Done allTodos={this.state.allTodos}
+      //   changeState={this.changeState}
+      //   />
       return (
         <div className="app">
           <div className="container">
@@ -89,9 +92,7 @@ class App extends React.Component {
 
           <Doing allTodos={this.state.allTodos}
             changeState={this.changeState}/>
-          <Done allTodos={this.state.allTodos}
-            changeState={this.changeState}
-            />
+
         </div>
       )
     }

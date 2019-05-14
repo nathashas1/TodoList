@@ -1,5 +1,5 @@
 import React from 'react';
-import DoneItem from './doing_item';
+import DoneItem from './done_item';
 
 const Done = ({ allTodos,changeState }) => {
 
