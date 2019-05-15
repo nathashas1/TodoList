@@ -7,7 +7,7 @@ const DoneItem = ({ done,changeState }) => {
   return (
     <div className="todoItem">
       <img className="imageIcon" src={leftBtn} alt="" onClick={() =>changeState("left","done",done.id)}/>
-      {done.text}
+      <div>{done.text}</div>
     </div>
   )
 }

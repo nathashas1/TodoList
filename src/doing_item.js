@@ -6,9 +6,9 @@ const DoingItem = ({ doing,changeState }) => {
   let leftBtn = "/left.svg"
   return (
     <div className="todoItem">
-      <img className="imageIconRight" src={rightBtn} alt="" onClick={() =>changeState("right","doing",doing.id)}/>
-      {doing.text}
-      <img className="imageIconLeft" src={leftBtn} alt="" onClick={() =>changeState("left","doing",doing.id)}/>
+      <img className="imageIcon" src={leftBtn} alt="" onClick={() =>changeState("left","doing",doing.id)}/>
+      <div>{doing.text}</div>
+      <img className="imageIcon" src={rightBtn} alt="" onClick={() =>changeState("right","doing",doing.id)}/>
     </div>
   )
 }

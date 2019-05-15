@@ -2,11 +2,8 @@ import React from 'react';
 import DoneItem from './done_item';
 
 const Done = ({ allTodos,changeState }) => {
-
-  let arr = []
-  let done = allTodos.map((done,i) => {
-    if (done.state === "done") {
-      arr.push(done)
+  let allDones = allTodos.filter(done => done.state === "done");
+  let done = allDones.map((done,i) => {
         return (
          <DoneItem
            key={i}
@@ -14,11 +11,7 @@ const Done = ({ allTodos,changeState }) => {
            changeState={changeState}
           />
         );
-    } else {
-      return null
-    }
   });
-  console.log("arr",arr)
   return (
     <div className="container">
       <h1>Done</h1>

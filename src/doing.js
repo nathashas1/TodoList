@@ -2,8 +2,8 @@ import React from 'react';
 import DoingItem from './doing_item';
 
 const Doing = ({ allTodos,changeState }) => {
-  let doings = allTodos.map((doing,i) => {
-    if (doing.state === "doing") {
+  let allDoings = allTodos.filter(doing => doing.state === "doing");
+  let doings = allDoings.map((doing,i) => {
         return (
          <DoingItem
            key={i}
@@ -13,9 +13,6 @@ const Doing = ({ allTodos,changeState }) => {
            changeState={changeState}
           />
         );
-    } else {
-      return null
-    }
   });
   return (
     <div className="container">
